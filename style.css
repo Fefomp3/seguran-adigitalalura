@@ -55,7 +55,7 @@ body{
 }
 
 .conteudo{
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -84,16 +84,62 @@ body{
     width: 50%;
     margin: 0 auto;
 }
+.parametro-senha-botoes{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 16px;
+}
+
 .parametro-senha__botao{
-background-color:#92c74c;
-color: var(--branco);
-border: 2px solid var(--borda);
-padding: 24px
-font-size: 24px
+    width: 56px;
+    height: 56px;
+    background-color: var(--fundo-texto);
+    color: var(--branco);
+    border: 2px solid var(--borda);
+    border-radius: 14px;
+    font-size: 28px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.parametro-senha__botao:hover{
+    background-color: rgba(145, 255, 0, 0.16);
+    transform: translateY(-1px);
 }
 
 .parametro-senha__texto{
+    min-width: 72px;
+    text-align: center;
+    padding: 16px 20px;
+    margin: 0;
+    font-size: 24px;
+    border-radius: 14px;
+    border: 2px solid var(--borda);
+    background-color: rgba(255, 255, 255, 0.05);
+}
 
+.parametro-senha-checkbox{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+label{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.checkbox{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
