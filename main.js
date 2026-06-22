@@ -10,6 +10,7 @@ const numeros = '0123456789';
 const simbolos = '!@%*?*&';
 const forcaSenha = document.querySelector('.forca');
 
+
 console.log(botoes)
 
 botoes[0].onclick = diminuiTamanho;
@@ -49,6 +50,8 @@ function classificaSenha(tamanhoAlfabeto){
         forcaSenha.classList.add('fraca');
     }
     console.log(entropia)
+    const valorEntropia = document.querySelector('.entropia');
+    valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
 }
 
 
