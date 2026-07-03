@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+@font-face {
+  font-family: 'AudiowideRegular';
+  src: url('Audiowide-Regular.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{font-family: 'AudiowideRegular';}
 
 :root{
     --branco: white;
@@ -7,10 +14,10 @@
     --fundo-texto: #004000;
     --borda: #91ff00;
     --roboto: 'Roboto', sans-serif;
-    --roboto-mono: 'Roboto Mono', monospace;
+    --AWRFONTE: 'AudiowideRegular';
 }
-
 *{
+    
     font-weight: 400;
 }
 
@@ -22,7 +29,7 @@ body{
 }
 
 .titulo-principal{
-    font-family: var(--roboto-mono);
+    font-family: var(--AWRFONTE);
     font-size: 32px;
 }
 
