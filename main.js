@@ -12,7 +12,7 @@ const forcaSenha = document.querySelector('.forca');
 
 
 console.log(botoes)
-campoSenha.ariaReadOnly = true;
+campoSenha.readOnly = true;
 
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;

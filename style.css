@@ -60,6 +60,7 @@ body{
     font-family: var(--roboto-mono);
     font-size: 40px;
     width: 70%;
+
 }
 
 #campo-senha:focus{
