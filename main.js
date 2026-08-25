@@ -17,7 +17,7 @@ botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
 
 function diminuiTamanho(){
-    if (tamanhoSenha > 1){
+    if (tamanhoSenha > 4){
         tamanhoSenha--;
     }
     numeroSenha.textContent = tamanhoSenha;
@@ -57,26 +57,44 @@ function classificaSenha(tamanhoAlfabeto){
 
 
 function geraSenha(){
-    let alfabeto = '';
-    if (checkbox[0].checked){
-        alfabeto = alfabeto + letrasMaiusculas;
+    const tiposSelecionados = [
+        { nome: 'maiusculo', caracteres: letrasMaiusculas },
+        { nome: 'minusculo', caracteres: letrasMinusculas },
+        { nome: 'numero', caracteres: numeros },
+        { nome: 'simbolo', caracteres: simbolos }
+    ].filter((tipo) => {
+        const checkboxIndex = {
+            maiusculo: 0,
+            minusculo: 1,
+            numero: 2,
+            simbolo: 3
+        }[tipo.nome];
+
+        return checkbox[checkboxIndex].checked;
+    });
+
+    if (tiposSelecionados.length === 0) {
+        campoSenha.value = '';
+        forcaSenha.classList.remove('fraca', 'media', 'forte');
+        forcaSenha.classList.add('fraca');
+        document.querySelector('.entropia').textContent = 'Selecione pelo menos um tipo de caractere.';
+        return;
     }
-    if (checkbox[1].checked){
-        alfabeto = alfabeto + letrasMinusculas;
+
+    const alfabeto = tiposSelecionados.map((tipo) => tipo.caracteres).join('');
+    const comprimentoMinimo = Math.max(tamanhoSenha, tiposSelecionados.length);
+
+    let senha = tiposSelecionados.map((tipo) => {
+        const indiceAleatorio = Math.floor(Math.random() * tipo.caracteres.length);
+        return tipo.caracteres[indiceAleatorio];
+    }).join('');
+
+    while (senha.length < comprimentoMinimo) {
+        const indiceAleatorio = Math.floor(Math.random() * alfabeto.length);
+        senha += alfabeto[indiceAleatorio];
     }
-    if (checkbox[2].checked){
-        alfabeto = alfabeto + numeros;
-    }
-    if (checkbox[3].checked){
-        alfabeto = alfabeto + simbolos;
-    }
-    console.log(alfabeto);
-    let senha = '';
-    for (let i = 0; i < tamanhoSenha;i++){
-        let numeroAleatorio = Math.random()*alfabeto.length;
-        numeroAleatorio = Math.floor(numeroAleatorio);
-        senha = senha + alfabeto[numeroAleatorio];
-    }
+
+    senha = senha.split('').sort(() => Math.random() - 0.5).join('');
     campoSenha.value = senha;
     classificaSenha(alfabeto.length);
 }
