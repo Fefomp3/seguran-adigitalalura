@@ -24,8 +24,12 @@
 body{
     color: var(--branco);
     background-color: var(--cor-de-fundo);
+    background-image: url('images.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     font-family: var(--roboto);
-   
 }
 
 .titulo-principal{
