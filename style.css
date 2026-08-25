@@ -186,8 +186,8 @@ label{
 }
 
 #gerar{
-    width: 106px;
-    height:56px;
+    width: 150px;
+    height:70px;
     background-color: var(--fundo-texto);
     color: var(--branco);
     border: 2px solid var(--borda);
@@ -197,8 +197,9 @@ label{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor:grabbing;
+    cursor:progress;
     transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-left: 30px
 }
 
 @media screen and (min-width: 768px) {
