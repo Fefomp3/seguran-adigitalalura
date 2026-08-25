@@ -82,3 +82,5 @@ function geraSenha(){
 }
 geraSenha();
 
+botoes[2].onclick = geraSenha;
+
