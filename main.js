@@ -12,7 +12,7 @@ const forcaSenha = document.querySelector('.forca');
 
 
 console.log(botoes)
-
+campo-senha.readOlny()
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
 
