@@ -9,7 +9,39 @@ const letrasMinusculas = 'abcdefghijklmnopqrstuvxywz';
 const numeros = '0123456789';
 const simbolos = '!@%*?*&';
 const forcaSenha = document.querySelector('.forca');
+const senhasProibidas = new Set([
+    'abcde',
+    'abcdf',
+    '12345',
+    'qwert',
+    'password',
+    'admin',
+    'senha123'
+]);
 
+function senhaEhProibida(senha) {
+    const senhaNormalizada = senha.toLowerCase();
+
+    if (senhasProibidas.has(senhaNormalizada)) {
+        return true;
+    }
+
+    for (let indice = 0; indice <= senhaNormalizada.length - 5; indice++) {
+        const trecho = senhaNormalizada.slice(indice, indice + 5);
+        const codigoInicial = trecho.charCodeAt(0);
+
+        const ehSequencia = trecho.split('').every((caractere, posicao) => {
+            if (posicao === 0) return true;
+            return caractere.charCodeAt(0) === codigoInicial + posicao;
+        });
+
+        if (ehSequencia) {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 console.log(botoes)
 campoSenha.readOnly = true;
@@ -96,6 +128,11 @@ function geraSenha(){
     }
 
     senha = senha.split('').sort(() => Math.random() - 0.5).join('');
+
+    if (senhaEhProibida(senha)) {
+        return geraSenha();
+    }
+
     campoSenha.value = senha;
     classificaSenha(alfabeto.length);
 }
