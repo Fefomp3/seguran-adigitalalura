@@ -1,3 +1,9 @@
+/*
+INTEGRANTES:
+Felipe Tozzini Teixeira - nº13
+Gabriel Alves - nº14
+TURMA: 3ª Série K
+*/
 const numeroSenha = document.querySelector('.parametro-senha__texto');
 let tamanhoSenha = 12;
 numeroSenha.textContent = tamanhoSenha;
